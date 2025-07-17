@@ -30,20 +30,37 @@ const ai = new GoogleGenAI({
 });
 
 
+
+
 app.post("/getData", upload.single("file") ,async (req, res) => {
   let getFile = req.file.path
-  const response = await ai.models.generateContent({
+  
+
+  if(getFile) {
+    const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: `You are a speech transcriber. Generate a detailed summary and transcript of the speech- ${getFile}`,
   });
   console.log(response.text);
-//   fs.unlink("uploads/" , (err)=>{
-//     if(err) console.log("Something went wrong while deleting the file")
-//     else console.log("File deleted successfully!");
-//   })
   return res.json({msg:response.text})
+  }
+
+
 });
 
+
+app.post("/askQuestions" , async(req,res)=>{
+  let userQuery = req.body.question
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: `See user will give u a long paragraph and now you have to 
+    assume that you already know about that paragraph and after that user 
+    will ask you some doubts so according to that paragraph you 
+    have to answer the question and except user answer
+    you don't need to say anything else okhie so here we go - ${userQuery}`,
+  });
+  return res.json({msg:response.text})
+})
 
 
 app.listen(PORT, () => {

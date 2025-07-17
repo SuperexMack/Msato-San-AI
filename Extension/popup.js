@@ -1,6 +1,6 @@
 let mediaRecorder;
 let recordedChunks = [];
-
+let wholeData;
 let message;
 
 let ContentArea = document.getElementById("content-area");
@@ -69,10 +69,33 @@ function startRecording(stream) {
     })
     .then((result)=>{
       console.log("Server response:", result);
+      wholeData = result.msg
       ContentArea.textContent = result.msg;
     })
 
+
+    fetch("http://localhost:5000/askQuestions" , {
+        method:"post",
+        headers:{
+          
+        }
+        body:JSON.stringify({
+          question:wholeData
+        })
+    })
+    .then((response)=>{
+        return response.json()
+    })
+    .then((result)=>{
+      console.log("Server response:", result);
+      wholeData = result.msg
+      ContentArea.textContent = ContentArea + result.msg;
+    })
+
   };
+
+
+  
 
   mediaRecorder.start();
 }
