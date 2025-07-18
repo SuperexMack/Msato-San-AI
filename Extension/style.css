@@ -32,11 +32,11 @@
     padding: 10px;
 }
 
-.content-area{
+#content-area{
     width: 100%;
-    height: 400px;
+    height: auto;
+    padding: 8px;
     overflow-y: scroll;
-    background-color: red;
     margin-top: 10px;
 }
 
@@ -50,14 +50,14 @@
 
 }
 
-.input-box{
+#input-box{
     width: 80%;
     padding: 10px;
     border-radius: 8px black;
     border-radius: 5px;
 }
 
-.send-btn{
+#send-btn{
     width: 80%;
     padding: 10px;
     border: 10px;

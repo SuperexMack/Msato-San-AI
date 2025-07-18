@@ -4,6 +4,8 @@ let wholeData;
 let message;
 
 let ContentArea = document.getElementById("content-area");
+let promptArea = document.getElementById("input-box");
+let SubmitButton = document.getElementById("send-btn");
 
 document.querySelector(".startRecord").addEventListener("click", () => {
   chrome.tabCapture.capture(
@@ -56,46 +58,49 @@ function startRecording(stream) {
       "Recording complete! Playing recorded audio...";
 
     // Backend call
-    let formData = new FormData()
-    
+    let formData = new FormData();
+
     formData.append("file", blob, "recording.mp3");
 
-    fetch("http://localhost:5000/getData" , {
-        method:"post",
-        body:formData
+    fetch("http://localhost:5000/getData", {
+      method: "post",
+      body: formData,
     })
-    .then((response)=>{
-        return response.json()
-    })
-    .then((result)=>{
-      console.log("Server response:", result);
-      wholeData = result.msg
-      ContentArea.textContent = result.msg;
-    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        console.log("Server response:", result);
+        wholeData = result.msg;
+        ContentArea.innerHTML += result.msg;
+      });
 
+    let promptData = promptArea.textContent;
 
-    fetch("http://localhost:5000/askQuestions" , {
-        method:"post",
-        headers:{
-          
-        }
-        body:JSON.stringify({
-          question:wholeData
+    SubmitButton.addEventListener("click", () => {
+        console.log("Req sent")
+        fetch("http://localhost:5000/askQuestions", {
+          method: "post",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            question: wholeData + promptData,
+          }),
         })
-    })
-    .then((response)=>{
-        return response.json()
-    })
-    .then((result)=>{
-      console.log("Server response:", result);
-      wholeData = result.msg
-      ContentArea.textContent = ContentArea + result.msg;
-    })
-
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            console.log("Server response:", result);
+            wholeData = result.msg;
+            // Using the below code we are going to give a breka line
+            ContentArea.innerHTML += `<br> ${wholeData}`
+            promptArea.innerHTML = ""
+          });
+    });
   };
-
-
-  
 
   mediaRecorder.start();
 }
