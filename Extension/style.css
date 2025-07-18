@@ -68,6 +68,10 @@
     color: white;
     font-weight: 300px;
     font-size: 15px;
-    border-radius: 8px black;
+    border-radius: 2px solid black;
     border-radius: 5px;
+}
+
+#send-btn:hover{
+    background-color: palevioletred;
 }

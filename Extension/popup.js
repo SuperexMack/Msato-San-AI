@@ -17,10 +17,10 @@ document.querySelector(".startRecord").addEventListener("click", () => {
       if (stream) {
         startRecording(stream);
         document.querySelector(".userPermission").textContent =
-          "Recording YouTube audio...";
+          "Listening and Analyzing Data ...";
       } else {
         document.querySelector(".userPermission").textContent =
-          "Failed to capture tab audio";
+          "Unable to work on the Data..... ";
       }
     }
   );
@@ -49,13 +49,13 @@ function startRecording(stream) {
     let url = window.URL.createObjectURL(blob);
 
     // Audio element mein set kar aur play kar
-    let audioElement = document.querySelector(".link");
-    audioElement.src = url;
-    audioElement.controls = true;
-    audioElement.play();
+    // let audioElement = document.querySelector(".link");
+    // audioElement.src = url;
+    // audioElement.controls = true;
+    // audioElement.play();
 
     document.querySelector(".userPermission").textContent =
-      "Recording complete! Playing recorded audio...";
+      "Data analysis completed. MSato is Filtering the data...";
 
     // Backend call
     let formData = new FormData();
@@ -75,10 +75,13 @@ function startRecording(stream) {
         ContentArea.innerHTML += result.msg;
       });
 
-    let promptData = promptArea.textContent;
+    
 
     SubmitButton.addEventListener("click", () => {
+        let promptData = promptArea.value;
         console.log("Req sent")
+        console.log("Whole Data is " + wholeData)
+        console.log("Prompt Data is " + promptData)
         fetch("http://localhost:5000/askQuestions", {
           method: "post",
           headers: {
@@ -96,8 +99,8 @@ function startRecording(stream) {
             console.log("Server response:", result);
             wholeData = result.msg;
             // Using the below code we are going to give a breka line
-            ContentArea.innerHTML += `<br> ${wholeData}`
-            promptArea.innerHTML = ""
+            ContentArea.innerHTML += `<br> <br> ${wholeData}`
+            promptArea.value = ""
           });
     });
   };
