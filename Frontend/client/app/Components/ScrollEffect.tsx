@@ -2,11 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { TracingBeam } from "../../components/ui/tracing-beam";
-import browser from "/browser.jpg"
-import notes from "/notes.jpg"
-import video from "/public/video.jpg"
-import question from "/public/questionmark.jpg"
-
+  
 export function TracingBeamDemo() {
   return (
     <TracingBeam className="px-6 ">

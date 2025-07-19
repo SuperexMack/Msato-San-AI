@@ -1,4 +1,5 @@
 import { Mybuttons } from "./Buttons"
+import { FAQS} from "./faqs"
 import { TracingBeamDemo } from "./ScrollEffect"
 import { HeroVideoDialogDemo } from "./VideoSection"
 
@@ -7,7 +8,7 @@ let buttons = Mybuttons[1]
 export default function HomePage(){
     return(
         <>
-        <div className="bg-[#1a1818] w-full h-auto flex flex-col">
+        <div className="bg-[#1a1818] w-full h-auto flex flex-col overflow-hidden">
            
            {/* Main section */}
 
@@ -52,6 +53,20 @@ export default function HomePage(){
                 <TracingBeamDemo></TracingBeamDemo>
            </div> 
 
+           </div>
+
+           <div className="w-full  h-auto mt-[100px] p-5 flex flex-col items-center">
+                
+                <h1 className="mt-[30px] text-[20px] font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Frequently Asked Questions</h1>
+                
+                <div className="w-[50%]">
+                <h1 className="mt-[30px] text-[60px] font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent text-center">We hope this helped you understand MSato better</h1>
+                </div>
+                
+                <div className="mt-7 w-full  flex flex-col items-center">
+                <FAQS></FAQS>
+                </div>
+          
            </div>
 
            
