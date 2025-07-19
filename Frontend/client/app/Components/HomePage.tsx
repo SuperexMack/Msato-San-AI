@@ -1,5 +1,5 @@
 import { Mybuttons } from "./Buttons"
-import { StickyScrollRevealDemo } from "./ScrollEffect"
+import { TracingBeamDemo } from "./ScrollEffect"
 import { HeroVideoDialogDemo } from "./VideoSection"
 
 let buttons = Mybuttons[1]
@@ -47,9 +47,9 @@ export default function HomePage(){
            </div>
 
             {/* what we do section */}
-           <div className="w-full h-auto bg-green-700 mt-14 flex flex-col items-center">
+           <div className="w-full h-auto mt-[200px] flex flex-col items-center">
                 <h1 className="text-[70px] text-center font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">What we do?</h1>
-                
+                <TracingBeamDemo></TracingBeamDemo>
            </div> 
 
            </div>
