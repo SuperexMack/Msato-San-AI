@@ -1,13 +1,14 @@
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
+
 export function HeroVideoDialogDemo() {
   return (
     <div className="relative rounded-2xl">
       <HeroVideoDialog
         className="block dark:hidden"
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+        videoSrc="https://www.youtube.com/embed/95W5a-uH8qc?si=-_2YnOzwQA9AElP"
+        thumbnailSrc= "/videoImage.png"
         thumbnailAlt="Hero Video"
       />
       <HeroVideoDialog

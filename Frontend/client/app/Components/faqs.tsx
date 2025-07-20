@@ -68,12 +68,12 @@ export function FAQS(){
 
     return(
         <>
-        <div className="mt-[100px] relative h-auto w-[60%] p-2 rounded-lg flex flex-col space-y-5">
+        <div className="mt-[100px] relative hover:cursor-pointer h-auto w-[60%] p-2 rounded-lg flex flex-col space-y-5">
             <div className="absolute left-[5%] -top-[20%] overflow-hidden h-[1000px] w-[1000px] blur-3xl opacity-10 rounded-full bg-violet-600">
 
             </div>
               {faqsData.map((value,index)=>(
-                <div key={index} className="flex flex-col space-y-3 p-2 rounded-2xl">
+                <div onClick={()=>caller(index)} key={index} className="flex flex-col space-y-3 p-2 rounded-2xl">
                     <div className="flex justify-between">
                         <h1 className="text-[25px] text-white font-semibold">{value.question}</h1>
                         <ChevronDown onClick={()=>caller(index)} className="h-[30px] hover:cursor-pointer text-white w-[30px]"></ChevronDown>

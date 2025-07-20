@@ -1,5 +1,6 @@
 import { Mybuttons } from "./Buttons"
 import { FAQS} from "./faqs"
+import Footer from "./Footer"
 import { TracingBeamDemo } from "./ScrollEffect"
 import { HeroVideoDialogDemo } from "./VideoSection"
 
@@ -66,6 +67,8 @@ export default function HomePage(){
                 <div className="mt-7 w-full  flex flex-col items-center">
                 <FAQS></FAQS>
                 </div>
+
+                <Footer></Footer>
           
            </div>
 
