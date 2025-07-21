@@ -44,7 +44,7 @@ const faqsData = [
   {
     question: "Who built MSato?",
     answer:
-      "MSato is built by an indie developer passionate about learning and productivity tools — blending AI with real-life student problems.",
+      "MSato is built by an indie developer (Mack) passionate about learning and productivity tools — blending AI with real-life student problems.",
   },
 ];
 
