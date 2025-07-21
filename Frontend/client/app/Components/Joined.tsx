@@ -10,22 +10,32 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import HomePage from "./HomePage";
+import Link from "next/link";
 
 export function HomeSection() {
+  // Scroll Logic
+  const VideoFeature = useRef(null);
+  const About = useRef(null);
+  const Contact = useRef(null);
+
+  const DivClick = (e: any) => {
+    e.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const navItems = [
     {
       name: "Features",
-      link: "#features",
+      link: () => DivClick(VideoFeature),
     },
     {
-      name: "Pricing",
-      link: "#pricing",
+      name: "About",
+      link: () => DivClick(About),
     },
     {
       name: "Contact",
-      link: "#contact",
+      link: () => DivClick(Contact),
     },
   ];
 
@@ -39,8 +49,12 @@ export function HomeSection() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <NavbarButton href="https://x.com/mohitsatitwt" variant="secondary">
+              Follow Mack😁
+            </NavbarButton>
+            <NavbarButton href="/extensionPage" variant="primary">
+              Get Extension
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -61,8 +75,10 @@ export function HomeSection() {
             {navItems.map((item, idx) => (
               <a
                 key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  item.link();
+                  setIsMobileMenuOpen(false);
+                }}
                 className="relative text-black"
               >
                 <span className="block">{item.name}</span>
@@ -70,27 +86,32 @@ export function HomeSection() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
+                href="https://x.com/mohitsatitwt"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
               >
-                Login
+                Follow Mack😁
               </NavbarButton>
               <NavbarButton
+                href="/extensionPage"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
               >
-                Book a call
+                Get Extension
               </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      <HomePage></HomePage>
+      <HomePage
+        VideoFeature={VideoFeature}
+        About={About}
+        Contact={Contact}
+      ></HomePage>
 
       {/* Navbar */}
     </div>
   );
 }
-

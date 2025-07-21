@@ -1,14 +1,15 @@
 import { Linkedin,Github,Twitter } from "lucide-react"
 import { TextHoverEffectDemo } from "./TextHoverFooter"
+import Link from "next/link"
 
-export default function Footer(){
+export default function Footer({myref}:any){
     return(
         <>
-        <div className="w-full h-auto p-3 mt-[300px] z-40 flex flex-col items-center">
-            <div className="md:w-[90%] w-full h-[90%] mt-6 flex justify-around md:flex-col flex-wrap">
+        <div ref={myref} className="w-full hover:cursor-pointer h-auto p-3 mt-[300px] z-40 flex flex-col items-center">
+            <div className="md:w-[90%] w-full h-[90%] mt-6 flex justify-around md:flex flex-wrap">
 
                {/* First Box */}
-               <div className="w-[500px] h-full p-7  flex flex-col space-y-5">
+               <div className="w-[500px]  h-full p-7  flex flex-col space-y-5">
                   <h1 className="text-[30px] font-bold bg-gradient-to-r from-white to-slate-500 bg-clip-text text-transparent">MSato San Ai</h1>
 
                   <div className="md:w-[70%] w-[120%]">
@@ -20,9 +21,9 @@ export default function Footer(){
                   </div>
 
                   <div className="md:w-[70%] w-full flex space-x-8">
-                    <Linkedin className="text-slate-300"></Linkedin>
-                    <Github className="text-slate-300"></Github>
-                    <Twitter className="text-slate-300"></Twitter>
+                    <Link href={"https://www.linkedin.com/in/mohitsatilinks/"}><Linkedin className="text-slate-300"></Linkedin></Link>
+                    <Link href={"https://github.com/SuperexMack"}><Github className="text-slate-300"></Github></Link>
+                    <Link href={"https://x.com/mohitsatitwt"}><Twitter className="text-slate-300"></Twitter></Link>
                   </div>
 
                   <div>
