@@ -102,7 +102,7 @@ export default function HomePage({VideoFeature,About,Contact}:any){
                 <h1 className="mt-[30px] text-[20px] font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Frequently Asked Questions</h1>
                 
                 <div className="md:w-[50%] w-full">
-                <h1 className="mt-[30px] md:text-[60px] text-[40px] font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent text-center">We hope this helped you understand MSato better</h1>
+                <h1 className="mt-[30px] md:text-[60px] text-[40px] font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent text-center">We hope this helps you understand MSato better</h1>
                 </div>
                 
                 <div ref={About} className="md:mt-7 mt-[100px] w-full flex flex-col items-center">
