@@ -6,7 +6,7 @@ import { TracingBeamDemo } from "./ScrollEffect"
 import { HeroVideoDialogDemo } from "./VideoSection"
 import Image from "next/image"
 
-let buttons = Mybuttons[1]
+let Newbuttons = Mybuttons[1]
 
 export default function HomePage({VideoFeature,About,Contact}:any){
    const [xpostion, setXposition] = useState(0);
@@ -66,7 +66,7 @@ export default function HomePage({VideoFeature,About,Contact}:any){
            <p className="text-center md:text-[20px] text-[18px] sm:text-[20px] md:font-light font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Your AI-powered study buddy analyze videos in Browser, ask doubts, and save notes with one click.</p>
 
            <div className="flex justify-center md:space-x-10 space-x-5 mt-5">
-            <button>{buttons.component}</button>
+            <button>{Newbuttons.component}</button>
             <button className="bg-yellow-300 md:w-[200px] w-[160px] rounded-md md:rounded-xl shadow-lg shadow-amber-300">Follow Us !!</button>
            </div>
 

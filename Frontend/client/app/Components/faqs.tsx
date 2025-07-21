@@ -69,7 +69,7 @@ export function FAQS(){
     return(
         <>
         <div className="md:mt-[200px] relative hover:cursor-pointer h-auto md:w-[60%] w-full p-2 rounded-lg flex flex-col space-y-5">
-            <div className="absolute left-[5%] -top-[20%] overflow-hidden h-[1000px] w-[1000px] blur-3xl opacity-10 rounded-full bg-violet-600">
+            <div className="absolute left-[5%] -top-[20%] overflow-hidden h-[1000px] w-[1000px] blur-3xl hidden  md:opacity-10 rounded-full bg-violet-600">
 
             </div>
               {faqsData.map((value,index)=>(
